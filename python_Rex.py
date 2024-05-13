@@ -25,13 +25,10 @@ texture = "Name: John Doe; Age: 30; Occupation: Engineer; Location: New York"
 
 # Extract the Occupation from the text
 
-#found = re.findall("Occupation", texture)
-#for key in texture:
-found = re.findall(r"Occupation:" "[.\w]", texture)
-print(found)
-
-
-    
+t_pattern = r"Occupation: (\w*)"
+textures = re.findall(t_pattern, texture)
+for word in textures:
+    print(word)
 
 #4 Python Regex Challenge: Enhancing E-Commerce Operations
 #Task 1:Product Description Keyword Tagging
@@ -45,11 +42,14 @@ descriptions = [
 moddescript = re.split(r",", ",".join(descriptions))
 print(moddescript)
 
-key = "Occopation", "t-shirt", "kitchen knife set"
-key1 = "289.99", "10.99", "59.99"
+key = "smartphone", "t-shirt", "kitchen knife set"
+key1 = "229.98", "9.99", "59.74"
+
 for i in range(len(moddescript)):
     moddescript[i] = re.sub(r"[\w.]^[key[i]]*", " ", moddescript[i])
     print(f"{moddescript[i]} , priced at ${key1[i]}.")
+
+
 
 
 
